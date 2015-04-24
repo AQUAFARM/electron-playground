@@ -34,19 +34,21 @@ gulp.task('electron-copy-module', function () {
 });
 
 gulp.task('electron', ['electron-config', 'electron-copy-module'], function () {
-  //return gulp.src(config.build.src + '/**/*')
-  //    .pipe(atomshell({
-  //        version: '0.25.0',
-  //        platform: 'darwin'
-  //    }))
-  //    .pipe(atomshell.zfsdest(config.build.dest));
+  return gulp.src(config.build.src + '/**')
+    .pipe(atomshell({
+      version: '0.25.1',
+      platform: 'darwin',
+      token: process.env.GITHUB_ACCESS_TOKEN,
+      darwinIcon: './build/images/electron-playground.icns'
+    }))
+    .pipe(atomshell.zfsdest(config.build.darwin.dest));
 
-  return atom({
-    srcPath: './build',
-    releasePath: './release',
-    cachePath: './cache',
-    version: 'v0.25.1',
-    rebuild: false,
-    platforms: ['darwin-x64', 'win32-x64', 'win32-ia32']
-  });
+  //return atom({
+  //  srcPath: './build',
+  //  releasePath: './release',
+  //  cachePath: './cache',
+  //  version: 'v0.25.1',
+  //  rebuild: false,
+  //  platforms: ['darwin-x64', 'win32-x64', 'win32-ia32']
+  //});
 });
