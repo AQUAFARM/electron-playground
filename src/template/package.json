@@ -1,5 +1,5 @@
 {
-    "name": "<%= name %>",
-    "version": "<%= version %>",
-    "main": "<%= main %>"
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "main": "<%= main %>"
 }
