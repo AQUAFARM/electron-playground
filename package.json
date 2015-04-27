@@ -23,7 +23,7 @@
     "event-stream": "^3.3.0",
     "gulp": "^3.8.11",
     "gulp-atom": "^0.1.0",
-    "gulp-atom-shell": "git@github.com:yshrsmz/gulp-atom-shell.git",
+    "gulp-atom-shell": "yshrsmz/gulp-atom-shell#feature/electron",
     "gulp-babel": "^5.1.0",
     "gulp-cssmin": "^0.1.6",
     "gulp-if": "^1.2.5",
