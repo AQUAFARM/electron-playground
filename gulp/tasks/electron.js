@@ -5,6 +5,7 @@ var template = require('gulp-template');
 var merge = require('event-stream').merge;
 var atomshell = require('gulp-atom-shell');
 var atom = require('gulp-atom');
+var asar = require('asar');
 
 var config = require('../config.js').electron;
 var packageConfig = require('../../package.json');
@@ -33,10 +34,10 @@ gulp.task('electron-copy-module', function () {
     .pipe(gulp.dest('./build/node_modules'));
 });
 
-gulp.task('electron', ['electron-config', 'electron-copy-module'], function () {
+gulp.task('electron-pack', ['electron-config', 'electron-copy-module'], function () {
   return gulp.src(config.build.src + '/**')
     .pipe(atomshell({
-      version: '0.25.1',
+      version: '0.25.2',
       platform: 'darwin',
       token: process.env.GITHUB_ACCESS_TOKEN,
       darwinIcon: './build/images/electron-playground.icns'
@@ -51,4 +52,8 @@ gulp.task('electron', ['electron-config', 'electron-copy-module'], function () {
   //  rebuild: false,
   //  platforms: ['darwin-x64', 'win32-x64', 'win32-ia32']
   //});
+});
+
+gulp.task('electron-rename', function() {
+
 });
